@@ -58,9 +58,9 @@ namespace Platformer.Mechanics
             collected = true;
 
             // Notify the TokenCollectionManager that a token was collected.
-            if (TokenCollectionManager.Instance != null)
+            if (TokenCollectionUIManager.Instance != null)
             {
-                TokenCollectionManager.Instance.CollectToken();
+                TokenCollectionUIManager.Instance.CollectToken();
             }
 
             // Trigger any additional gameplay events.

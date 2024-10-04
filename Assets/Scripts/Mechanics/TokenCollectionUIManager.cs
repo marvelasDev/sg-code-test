@@ -6,16 +6,18 @@ using TMPro;
 
 namespace Platformer.Mechanics
 {
-    public class TokenCollectionManager : MonoBehaviour
+    public class TokenCollectionUIManager : MonoBehaviour
     {
-        public static TokenCollectionManager Instance;
-        Animator animator;// = tokenCountText.GetComponent<Animator>();
+        public static TokenCollectionUIManager Instance;
+        Animator animator;
 
         public TextMeshProUGUI tokenCountText;
 
         private int tokenCount = 0;
 
-        // MV - Use a Unity Action for token collection event (cleaner than delegate/event combo)
+        /// <summary> MV - Here, I use a Unity Action for token collection event (it's cleaner than delegate/event & OnEnable/OnDisable combo,
+        /// plus we don't have to worry about unsubscribing)
+        /// </summary>
         public UnityAction onTokenCollected;
 
         private void Awake()
@@ -35,7 +37,7 @@ namespace Platformer.Mechanics
 
         private void Start()
         {
-
+            // MV - cache the animator reference
             animator = tokenCountText.GetComponent<Animator>();
         }
 
@@ -52,10 +54,10 @@ namespace Platformer.Mechanics
             }
         }
 
-        // Update the token UI and animate the change.
+        // Update the token UI text and animate it.
         private void UpdateTokenUI()
         {
-            tokenCountText.text = /*"Score: "*/tokenCount.ToString();
+            tokenCountText.text = tokenCount.ToString();
 
             AnimateTokenUI();
         }
@@ -63,28 +65,10 @@ namespace Platformer.Mechanics
         // Simple scale animation for the UI.
         private void AnimateTokenUI()
         {
-            // Assuming we have an Animator attached to the UI element for animation.
-            //Animator animator = tokenCountText.GetComponent<Animator>();
             if (animator != null)
             {
                 animator.SetTrigger("Collect");
             }
-            //else
-            //{
-            //    // If no Animator, use a simple scale animation.
-            //    StartCoroutine(ScaleText());
-            //}
         }
-
-        // Coroutine for a simple scale effect on the token count text.
-        /*private IEnumerator ScaleText()
-        {
-            Vector3 originalScale = tokenCountText.transform.localScale;
-            tokenCountText.transform.localScale = originalScale * 1.2f;
-
-            yield return new WaitForSeconds(0.2f);
-
-            tokenCountText.transform.localScale = originalScale;
-        }*/
     }
 }
