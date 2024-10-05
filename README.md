@@ -8,7 +8,7 @@ While the cause wasn't immediately obvious, I eventually noticed the TokenSpin.p
 - Since it is a spritesheet, its Sprite Mode had to be set to Multiple.
 
 ## 2. New Feature: Implement Double Jump
-I added new variables for jumpCount and maxJumps to handle double jump logic while in mid-air in the Update() and ComputeVelocity() methods. Then in the UpdateJumpState() method, I reset the jumpCount to zero upon landing.
+In PlayerController.cs, I added new variables for jumpCount and maxJumps to handle double jump logic while in mid-air in the Update() and ComputeVelocity() methods. Then in the UpdateJumpState() method, I reset the jumpCount to zero upon landing.
 
 ## 3. Add UI: Token Counter & User Information
 - I added two TextMeshProUGUI text elements to a new Canvas named "HUD"; one to display the Score, and one to display the currently logged-in user's email address. I also changed the Canvas Scaler component to 'Scale with Screen Size' for proper scaling across all [landscaped] form factors. <br>
