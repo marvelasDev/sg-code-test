@@ -15,7 +15,7 @@ namespace Platformer.Mechanics
 
         private int tokenCount = 0;
 
-        /// <summary> MV - Here, I use a Unity Action for token collection event (it's cleaner than delegate/event & OnEnable/OnDisable combo,
+        /// <summary> MV - Here, I use a Unity Action for token collection UI update event (it's cleaner than delegate/event & OnEnable/OnDisable combo,
         /// plus we don't have to worry about unsubscribing)
         /// </summary>
         public UnityAction onTokenCollected;
