@@ -18,7 +18,7 @@ In PlayerController.cs, I added new variables for jumpCount and maxJumps to hand
 - Created a new login Scene named LoginScene.unity, with TMP_InputFields for name and password, as well as a Login button. As with the HUD, I also adjusted the Canvas Scaler component for proper scaling across all [landscaped] form factors.<br>
 - Created a LoginManager class, where I referenced the APIs in the provided Documentation. I used my Postman desktop client to test the 'POST' data retrieval call from the auth/login endpoint using the provided Fakerson credentials. In Postman I also tested the auth/authenticated-user-details endpoint via GET.<br>
 - In Play Mode, if either of the input fields are blank or the entered credentials are wrong, you get a 401 error. If the connection is otherwise unsuccessful, it lets you know in the Console. If authentication is successful, yellow 'Success!' text appears above the Login button, along with displaying the user's email for 2 seconds before proceeding to load the main game scene (SampleScene.unity). I then save the JWT access token returned by the API as a string to PlayerPrefs.
-- I then created a new class named EmailDisplay.cs and attached it to the HUD gameobject. Per the instructions, this class displays the saved JWT string in the EmailText (TMP) game object I have at the bottom left of the screen.
+- I then created a new class named EmailDisplay.cs and attached it to the HUD gameobject. Per the instructions, this class displays the email address tied to the user's saved JWT string in the EmailText (TMP) game object I have at the bottom left of the screen.
 
 ### Issues I ran into for Item #4 were:
 - My initial endpoint urls were incorrectly typed.
